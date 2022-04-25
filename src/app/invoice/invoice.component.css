@@ -1,0 +1,38 @@
+#invoice-head {
+    width: 80%;
+    margin: 10px;
+    display: grid;
+    justify-content: start;
+    padding: 20px;
+
+}
+
+h2 {
+    width: 80%;
+    margin: 10px;
+    display: grid;
+    justify-content: start;
+    padding: 20px;
+}
+
+ .items-table {
+    width: 80%;
+    margin: 10px;
+    justify-content: space-evenly;
+    padding: 20px;
+  }
+  
+  .mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+  }
+  
+  .mat-row:hover .mat-cell {
+    border-color: currentColor;
+  }
+  
+  .demo-row-is-clicked {
+    font-weight: bold;
+  }
+  

@@ -1,0 +1,47 @@
+<h2>Invoice Details</h2>
+
+<div id="invoice-head" *ngIf = "invoice != undefined">
+    <p>Invoice Id : {{invoice.id}}</p>
+    <p>Customer Name : {{invoice.customerName}}</p>
+    <p>Issue Date : {{invoice.issueDate}}</p>
+    <p>Total Price : {{invoice.totalPrice}}</p>
+</div>
+
+<h2>Items On The Invoice</h2>  
+<table mat-table [dataSource]="dataSource" class="items-table">
+  <!-- Position Column -->
+    <ng-container matColumnDef="productName">
+      <th mat-header-cell *matHeaderCellDef>Product</th>
+      <td mat-cell *matCellDef="let element">{{element.productName}}</td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Quantity</th>
+      <td mat-cell *matCellDef="let element">{{element.quantity}}</td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="unitPrice">
+      <th mat-header-cell *matHeaderCellDef>Unit price</th>
+      <td mat-cell *matCellDef="let element">{{element.unitPrice}}</td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="itemTotalPrice">
+      <th mat-header-cell *matHeaderCellDef>Item Total Price</th>
+      <td mat-cell *matCellDef="let element">{{element.itemTotalPrice}}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="itemTotalEuroPrice">
+        <th mat-header-cell *matHeaderCellDef>Item Total Euro Price</th>
+        <td mat-cell *matCellDef="let element">{{element.itemTotalEuroPrice}}</td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns;"
+    ></tr>
+  </table>
