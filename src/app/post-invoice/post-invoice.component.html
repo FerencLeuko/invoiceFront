@@ -2,13 +2,13 @@
 <div id="container">
     <form #form="ngForm">
         <label for="customerName">Customer Name </label>
-        <input type="text" name="customerName" id="customerName" ngModel required>
+        <input [(ngModel)]="this.newInvoice.customerName" type="text" name="customerName" id="customerName" ngModel required>
         <label for="issueDate">Issue Date </label>
-        <input type="date" name="issueDate" id="issueDate" ngModel>
+        <input [(ngModel)]="this.newInvoice.issueDate" type="date"  name="issueDate" id="issueDate" ngModel>
         <label for="dueDate">Due Date </label>
-        <input type="date" name="dueDate" id="dueDate" ngModel>
+        <input [(ngModel)]="this.newInvoice.dueDate" type="date"  name="dueDate" id="dueDate" ngModel>
         <label for="comment">Comment </label>
-        <textarea name="comment" id="comment" ngModel></textarea>
+        <textarea [(ngModel)]="this.newInvoice.comment" name="comment" id="comment" ngModel></textarea>
     </form>
         <h3> Items </h3>
         <div *ngFor="let item of items">
