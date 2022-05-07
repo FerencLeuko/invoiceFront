@@ -11,14 +11,14 @@ export class Invoice {
     items : Item[];
   
     constructor(
-        id : number, 
-        customerName : string,  
-        issueDate : Date, 
-        dueDate : Date, 
-        totalPrice : number, 
-        totalEuroPrice : number, 
-        comment : string,  
-        items : Item[] )
+        id? : number, 
+        customerName? : string,  
+        issueDate? : Date, 
+        dueDate? : Date, 
+        totalPrice? : number, 
+        totalEuroPrice? : number, 
+        comment? : string,  
+        items? : Item[] )
 
         {
         this.id = id;

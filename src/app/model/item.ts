@@ -6,11 +6,11 @@ export class Item{
     itemTotalEuroPrice : number;
 
     constructor(
-        productName: string,
-        unitPrice : number,
-        quantity : number,
-        itemTotalPrice : number,
-        itemTotalEuroPrice : number)
+        productName?: string,
+        unitPrice? : number,
+        quantity? : number,
+        itemTotalPrice? : number,
+        itemTotalEuroPrice? : number)
         
         {
             this.productName = productName;

@@ -1,1 +1,24 @@
-<p>post-invoice works!</p>
+<h2>Create a new invoice</h2>
+<div id="container">
+    <form #form="ngForm">
+        <label for="customerName">Customer Name </label>
+        <input type="text" name="customerName" id="customerName" ngModel required>
+        <label for="issueDate">Issue Date </label>
+        <input type="date" name="issueDate" id="issueDate" ngModel>
+        <label for="dueDate">Due Date </label>
+        <input type="date" name="dueDate" id="dueDate" ngModel>
+        <label for="comment">Comment </label>
+        <textarea name="comment" id="comment" ngModel></textarea>
+    </form>
+        <h3> Items </h3>
+        <div *ngFor="let item of items">
+            <label for="productName">Product Name </label>
+            <input [(ngModel)]="item.productName" type="text" name="productName" id="productName" required>
+            <label for="unitPrice">Unit Price </label>
+            <input [(ngModel)]="item.unitPrice" type="number" name="unitPrice" id="unitPrice" required>
+            <label for="quantity">Quantity </label>
+            <input [(ngModel)]="item.quantity" type="number" name="quantity" id="quantity" required>
+        </div>
+        <button type="button" (click) = createItem()>New Item</button>  
+       <button (click) = createInvoice() > Create Invoice </button>
+</div>

@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import {MatTableModule} from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginato
     HttpClientModule,
     MatTableModule,
     BrowserAnimationsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FormsModule
   ],
   providers: [ { provide :  MatPaginatorIntl, useValue : newMatPaginatorIntl() } ],
   bootstrap: [AppComponent]

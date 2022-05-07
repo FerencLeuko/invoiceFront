@@ -20,4 +20,9 @@ getInvoice( id: number ): Observable<Invoice> {
   { params: new HttpParams().set( "invoiceId" , id ) });
 }
 
+postInvoice( invoice : Invoice ){
+  return this.httpClient.post<Invoice>("http://localhost:8081/invoice", 
+  invoice );
+}
+
 }
