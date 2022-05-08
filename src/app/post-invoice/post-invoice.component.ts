@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { InvoiceService } from '../invoice.service';
 import { Invoice } from '../model/invoice';
 import { Item } from '../model/item';
@@ -20,7 +21,8 @@ export class PostInvoiceComponent implements OnInit {
   @ViewChild("form")
   form : NgForm;
 
-  constructor( private invoiceService: InvoiceService) { }
+  constructor( private invoiceService: InvoiceService,
+    private router : Router ) { }
 
   ngOnInit(): void {    
   }
@@ -37,11 +39,14 @@ export class PostInvoiceComponent implements OnInit {
     this.newInvoice.dueDate = this.form.form.value["dueDate"];
     this.newInvoice.comment = this.form.form.value["comment"];
     this.newInvoice.items = this.items;
-    this.postInvoice();
+    if (confirm("Are you sure to save this invoice?")){
+      this.postInvoice();   
+    }
   }
 
   postInvoice(){
-    this.invoiceService.postInvoice(this.newInvoice).subscribe(response => console.log(response));
+      this.invoiceService.postInvoice(this.newInvoice).subscribe( response => 
+      this.router.navigate(["/invoice", response.id ]));
   }
 
 }

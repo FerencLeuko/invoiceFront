@@ -4,20 +4,20 @@
         <label for="customerName">Customer Name </label>
         <input [(ngModel)]="this.newInvoice.customerName" type="text" name="customerName" id="customerName" ngModel required>
         <label for="issueDate">Issue Date </label>
-        <input [(ngModel)]="this.newInvoice.issueDate" type="date"  name="issueDate" id="issueDate" ngModel>
+        <input [(ngModel)]="this.newInvoice.issueDate" type="date"  name="issueDate" id="issueDate" ngModel required>
         <label for="dueDate">Due Date </label>
-        <input [(ngModel)]="this.newInvoice.dueDate" type="date"  name="dueDate" id="dueDate" ngModel>
+        <input [(ngModel)]="this.newInvoice.dueDate" type="date"  name="dueDate" id="dueDate" ngModel required>
         <label for="comment">Comment </label>
-        <textarea [(ngModel)]="this.newInvoice.comment" name="comment" id="comment" ngModel></textarea>
+        <textarea [(ngModel)]="this.newInvoice.comment" name="comment" id="comment" ngModel required></textarea>
     </form>
         <h3> Items </h3>
         <div *ngFor="let item of items">
             <label for="productName">Product Name </label>
-            <input [(ngModel)]="item.productName" type="text" name="productName" id="productName" required>
+            <input [(ngModel)]="item.productName" type="text" name="productName" id="productName" ngModel required>
             <label for="unitPrice">Unit Price </label>
-            <input [(ngModel)]="item.unitPrice" type="number" name="unitPrice" id="unitPrice" required>
+            <input [(ngModel)]="item.unitPrice" type="number" name="unitPrice" id="unitPrice" ngModel required>
             <label for="quantity">Quantity </label>
-            <input [(ngModel)]="item.quantity" type="number" name="quantity" id="quantity" required>
+            <input [(ngModel)]="item.quantity" type="number" name="quantity" id="quantity" ngModel required>
         </div>
         <button type="button" (click) = createItem()>New Item</button>  
        <button (click) = createInvoice() > Create Invoice </button>
