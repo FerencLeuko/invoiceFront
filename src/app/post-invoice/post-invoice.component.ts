@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ConfirmDialogComponent } from '../dialog/confirm-dialog/confirm-dialog.component';
 import { InvoiceService } from '../invoice.service';
 import { Invoice } from '../model/invoice';
 import { Item } from '../model/item';
@@ -22,7 +24,8 @@ export class PostInvoiceComponent implements OnInit {
   form : NgForm;
 
   constructor( private invoiceService: InvoiceService,
-    private router : Router ) { }
+    private router : Router,
+    private dialog : MatDialog ) { }
 
   ngOnInit(): void {    
   }
@@ -39,9 +42,10 @@ export class PostInvoiceComponent implements OnInit {
     this.newInvoice.dueDate = this.form.form.value["dueDate"];
     this.newInvoice.comment = this.form.form.value["comment"];
     this.newInvoice.items = this.items;
-    if (confirm("Are you sure to save this invoice?")){
-      this.postInvoice();   
-    }
+    this.dialog.open(ConfirmDialogComponent, {
+      data:{ invoice: this.newInvoice },
+      width: "75%"
+    });
   }
 
   postInvoice(){

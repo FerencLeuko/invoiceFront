@@ -13,6 +13,8 @@ import {MatTableModule} from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ConfirmDialogComponent } from './dialog/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     InvoicesComponent,
     InvoiceComponent,
     PostInvoiceComponent,
-    HomeComponent
+    HomeComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     MatTableModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [ { provide :  MatPaginatorIntl, useValue : newMatPaginatorIntl() } ],
   bootstrap: [AppComponent]
